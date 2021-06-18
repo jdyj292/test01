@@ -4,18 +4,15 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 @Getter
-@NoArgsConstructor
-@Entity
+@NoArgsConstructor //기본생성자추가
+@Entity //테이블과 링크될 클래스
 public class Posts {
 
-    @id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id //pk
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // pk생성규칙 autoincreament
     private Long id;
 
     @Column(length = 500, nullable = false)
